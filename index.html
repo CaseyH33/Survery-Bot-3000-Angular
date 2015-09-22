@@ -1,10 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html ng-app="surveyBot">
   <head>
     <title>SurveyBot 3000</title>
     <script src="lib/angular.js"></script>
+    <script src="lib/underscore.js"></script>
     <script src="app.js"></script>
-    <script src="controllers/ResultsController.js"></script>
     <script src="controllers/SurveyController.js"></script>
+    <script src="controllers/ResultsController.js"></script>
     <script src="services/SurveyFactory.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -15,10 +17,10 @@
         <div class="row">
           <div class="col-md-12">
             <h2>SurveyBot 3000</h2>
-            <form role="form">
+            <form ng-submit="SurveyFactory.surveySubmit()" role="form">
               <div class="form-group">
                 <label for="question1">Favorite Ninja Turtle</label>
-                <select ng-model="question1" id="question1" class="form-control">
+                <select ng-model="SurveyFactory.ninjaTurtle" class="form-control">
                   <option value="Donatello">Donatello</option>
                   <option value="Leonardo">Leonardo</option>
                   <option value="Michelangelo">Michelangelo</option>
@@ -27,14 +29,14 @@
               </div>
               <div class="form-group">
                 <label for="question2">Sandwiches or Burritos?</label>
-                <select ng-model="question2" id="question2" class="form-control">
+                <select ng-model="SurveyFactory.sandurrito" class="form-control">
                   <option value="Sandwiches">Sandwiches</option>
                   <option value="Burritos">Burritos</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="question3">Favorite Pokemon</label>
-                <select ng-model="question3" id="question3" class="form-control">
+                <select ng-model="SurveyFactory.pokemon" class="form-control">
                   <option value="Charizard">Charizard</option>
                   <option value="Jigglypuff">Jigglypuff</option>
                   <option value="Magikarp">Magikarp</option>
@@ -46,7 +48,7 @@
               </div>
               <div class="form-group">
                 <label for="question4">Favorite Video Game Series</label>
-                <select ng-model="question4" id="question4" class="form-control">
+                <select ng-model="SurveyFactory.vgSeries" class="form-control">
                   <option value="Fallout">Fallout</option>
                   <option value="Final Fantasy">Final Fantasy</option>
                   <option value="The Legend of Zelda">The Legend of Zelda</option>
@@ -59,7 +61,7 @@
               </div>
               <div class="form-group">
                 <label for="question5">Which superpower would you prefer?</label>
-                <select ng-model="question5" id="question5" class="form-control">
+                <select ng-model="SurveyFactory.superpower" class="form-control">
                   <option value="Flight">Flight</option>
                   <option value="Invisibility">Invisibility</option>
                   <option value="Super Strength">Super Strength</option>
@@ -70,7 +72,7 @@
               </div>
               <div class="form-group">
                 <label for="question6">Twilight: Team....?</label>
-                <select ng-model="question6" id="question6" class="form-control">
+                <select ng-model="SurveyFactory.twilight" class="form-control">
                   <option value="Edward">Edward</option>
                   <option value="Jacob">Jacob</option>
                   <option value="Fuck that shit">Fuck that shit</option>
@@ -78,16 +80,39 @@
               </div>
               <div class="form-group">
                 <label for="question7">Does Mitch Rivet look like Brian from the Backstreet Boys?</label>
-                <select ng-model="question7" id="question7" class="form-control">
+                <select ng-model="SurveyFactory.mitchBSB" class="form-control">
                   <option value="Yes">Totally</option>
                   <option value="No">I don't see it...</option>
                 </select>
               </div>
+              <button type="submit">Submit</button>
               </form>
             </div>
           </div>
         </div>
+        <div ng-controller="ResultsCtrl">
+          <div class="row" ng-show="responses.length > 2">
+            <a class="clickable" ng-click="responseTally()">Show results</a>
+              <div class="col-md-12">
+                <h2>Results</h2>
+                <h4>Favorite Ninja Turtle:</h4>
+                  <div ng-repeat="(key,data) in ninjaTurtleQ">{{key}}: {{data}}</div>
+                <h4>Sandwich or Burrito:</h4>
+                  <div ng-repeat="(key,data) in sandurritoQ">{{key}}: {{data}}</div>
+                <h4>Favorite Pokemon:</h4>
+                  <div ng-repeat="(key,data) in pokemonQ">{{key}}: {{data}}</div>
+                <h4>Favorite Video Game Series:</h4>
+                  <div ng-repeat="(key,data) in vgSeriesQ">{{key}}: {{data}}</div>
+                <h4>Preferred Superpower:</h4>
+                  <div ng-repeat="(key,data) in superpowerQ">{{key}}: {{data}}</div>
+                <h4>Twilight: Team...:</h4>
+                  <div ng-repeat="(key,data) in twilightQ">{{key}}: {{data}}</div>
+                <h4>Does Mitch Rivet look like Brian from the Backstreet Boys?</h4>
+                  <div ng-repeat="(key,data) in mitchBSBQ">{{key}}: {{data}}</div>
+
+              </div>
+          </div>
+        </div>
       </div>
-    </div>
   </body>
 </html>

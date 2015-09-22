@@ -3,8 +3,15 @@ surveyBot.factory('SurveyFactory', function SurveyFactory() {
   factory.responses = [];
 
   factory.surveySubmit = function() {
-    var response = { ninjaTurtle: factory.ninjaTurtle, sandurrito: factory.sandurrito, pokemon: factory.pokemon, vgSeries: factory.vgSeries, superpower: factory.superpower, twilight: factory.twilight, mitchBSB: factory.mitchBSB };
+    var response = { ninjaTurtle: factory.ninjaTurtle,
+                      sandurrito: factory.sandurrito,
+                      pokemon: factory.pokemon,
+                      vgSeries: factory.vgSeries,
+                      superpower: factory.superpower,
+                      twilight: factory.twilight,
+                      mitchBSB: factory.mitchBSB };
     factory.responses.push(response);
+    console.log(factory.responses)
     factory.ninjaTurtle = null;
     factory.sandurrito = null;
     factory.pokemon = null;
