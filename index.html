@@ -1,8 +1,80 @@
 <html>
   <head>
     <title>SurveyBot 3000</title>
+    <script src="lib/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/ResultsController.js"></script>
+    <script src="controllers/SurveyController.js"></script>
+    <script src="services/SurveyFactory.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
   </head>
   <body>
-
+    <div class="container">
+      <div ng-controller="SurveyCtrl">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>SurveyBot 3000</h2>
+            <form class="form-inline" role="form">
+              <div class="form-group">
+                <label for="question1">Favorite Ninja Turtle</label>
+                <select ng-model="question1" id="question1" class="form-control">
+                  <option value="Donatello">Donatello</option>
+                  <option value="Leonardo">Leonardo</option>
+                  <option value="Michelangelo">Michelangelo</option>
+                  <option value="Raphael">Raphael</option>
+                </select>
+                <label for="question2">Sandwiches or Burritos?</label>
+                <select ng-model="question2" id="question2" class="form-control">
+                  <option value="Sandwiches">Sandwiches</option>
+                  <option value="Burritos">Burritos</option>
+                </select>
+                <label for="question3">Favorite Pokemon</label>
+                <select ng-model="question3" id="question3" class="form-control">
+                  <option value="Charizard">Charizard</option>
+                  <option value="Jigglypuff">Jigglypuff</option>
+                  <option value="Magikarp">Magikarp</option>
+                  <option value="Metapod">Metapod</option>
+                  <option value="Mewtwo">Mewtwo</option>
+                  <option value="Pikachu">Pikachu</option>
+                  <option value="Snorlax">Snorlax</option>
+                </select>
+                <label for="question4">Favorite Video Game Series</label>
+                <select ng-model="question4" id="question4" class="form-control">
+                  <option value="Fallout">Fallout</option>
+                  <option value="Final Fantasy">Final Fantasy</option>
+                  <option value="The Legend of Zelda">The Legend of Zelda</option>
+                  <option value="Metal Gear Solid">Metal Gear Solid</option>
+                  <option value="Metroid">Metroid</option>
+                  <option value="Pong">Pong</option>
+                  <option value="Sonic the Hedgehog">Sonic the Hedgehog</option>
+                  <option value="Super Mario Bros.">Super Mario Bros.</option>
+                </select>
+                <label for="question5">Which superpower would you prefer?</label>
+                <select ng-model="question5" id="question5" class="form-control">
+                  <option value="Flight">Flight</option>
+                  <option value="Invisibility">Invisibility</option>
+                  <option value="Super Strength">Super Strength</option>
+                  <option value="Teleportation">Teleportation</option>
+                  <option value="Time Manipulation">Time Manipulation</option>
+                  <option value="X-Ray Vision">X-Ray Vision</option>
+                </select>
+                <label for="question6">Twilight: Team....?</label>
+                <select ng-model="question6" id="question6" class="form-control">
+                  <option value="Edward">Edward</option>
+                  <option value="Jacob">Jacob</option>
+                  <option value="Fuck that shit">Fuck that shit</option>
+                </select>
+                <label for="question7">Does Mitch Rivet look like Brian from the Backstreet Boys?</label>
+                <select ng-model="question7" id="question7" class="form-control">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

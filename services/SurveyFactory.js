@@ -13,4 +13,5 @@ surveyBot.factory('SurveyFactory', function SurveyFactory() {
     factory.twilight = null;
     factory.mitchBSB = null;
   };
+  return factory;
 });
