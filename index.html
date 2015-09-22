@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container">
-      <div ng-controller="SurveyCtrl">
+      <div ng-controller="SurveyCtrl" ng-show="!showResults">
         <div class="row">
           <div class="col-md-12">
             <h2>SurveyBot 3000</h2>
@@ -91,9 +91,10 @@
           </div>
         </div>
         <div ng-controller="ResultsCtrl">
-          <div class="row" ng-show="responses.length > 2">
-            <a class="clickable" ng-click="responseTally()">Show results</a>
-              <div class="col-md-12">
+          <div class="row" ng-show="responses.length > 1">
+              <a class="clickable" ng-click="responseTally(); showResults=true">Show results</a>
+          </div>
+          <div ng-show="showResults">
                 <h2>Results</h2>
                 <h4>Favorite Ninja Turtle:</h4>
                   <div ng-repeat="(key,data) in ninjaTurtleQ">{{key}}: {{data}}</div>
@@ -109,8 +110,10 @@
                   <div ng-repeat="(key,data) in twilightQ">{{key}}: {{data}}</div>
                 <h4>Does Mitch Rivet look like Brian from the Backstreet Boys?</h4>
                   <div ng-repeat="(key,data) in mitchBSBQ">{{key}}: {{data}}</div>
+                <a class="clickable" ng-click="showResults=false">Take Survey Again</a>
+            </div>
 
-              </div>
+            </div>
           </div>
         </div>
       </div>

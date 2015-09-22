@@ -11,7 +11,6 @@ surveyBot.factory('SurveyFactory', function SurveyFactory() {
                       twilight: factory.twilight,
                       mitchBSB: factory.mitchBSB };
     factory.responses.push(response);
-    console.log(factory.responses)
     factory.ninjaTurtle = null;
     factory.sandurrito = null;
     factory.pokemon = null;
